@@ -10,7 +10,7 @@ def puddle(walls):
             leftmax = walls[lIndex]
         if walls[rIndex] > rightmax:
             rightmax = walls[rIndex]
-        #
+        # Calculate volume
         if leftmax < rightmax:
             volume += leftmax - walls[lIndex]
             lIndex+=1
