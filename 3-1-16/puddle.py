@@ -1,22 +1,17 @@
 def puddle(walls):
-    leftmax = 0
-    rightmax = 0
-    lIndex = 0
-    rIndex = len(walls)-1
-    volume = 0
-    while lIndex < rIndex:
+    Lmax = Rmax = left = volume = 0
+    right = len(walls)-1
+    while left < right:
         # Adjust max values
-        if walls[lIndex] > leftmax:
-            leftmax = walls[lIndex]
-        if walls[rIndex] > rightmax:
-            rightmax = walls[rIndex]
+        Lmax = max(walls[left], Lmax)
+        Rmax = max(walls[right], Rmax)
         # Calculate volume
-        if leftmax < rightmax:
-            volume += leftmax - walls[lIndex]
-            lIndex+=1
+        if Lmax < Rmax:
+            volume += Lmax - walls[left]
+            left+=1
         else:
-            volume += rightmax - walls[rIndex]
-            rIndex-=1
+            volume += Rmax - walls[right]
+            right-=1
     return volume
 
 print puddle([2,5,1,2,3,4,7,7,6])
